@@ -43,7 +43,15 @@ body {
   border-radius: 2rem;
 }
 
-.card {}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
 .card--top {
   background-color: #fff;
 }
