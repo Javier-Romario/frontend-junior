@@ -1,3 +1,114 @@
+html {
+  width: 100vw;
+  height: 100vh;
+}
 body {
   font-family: 'Roboto', sans-serif;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+:root {
+  /* Debug styles */
+  --mobile: #F7F052;
+  --phablet: #F28123;
+  --tablet: #D34E24;
+  --laptop: #563F1B;
+  --desktop: #38726C;
+}
+
+.page__content {
+  padding: 6rem 3rem;
+}
+
+.page__heading {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #F9FAFB;
+  text-align: center;
+  width: 30%;
+  margin: 2rem auto;
+  border-radius: 2rem;
+}
+
+.pricing-toggle__option {
+  height: 100%;
+  border-radius: 2rem;
+}
+
+.card {}
+.card--top {
+  background-color: #fff;
+}
+.card--bot {
+  background-color: #F9FAFB;
+}
+.card__product {}
+.card__product--product-level {}
+.card__product--description {}
+.card__product--price {}
+.pill {}
+.pricing-toggle {}
+.pricing-option {}
+
+/* Mobile */
+@media screen and (min-width: 400px) {
+  body::before {
+    content: "Mobile";
+    background-color: var(--mobile);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* Phablet */
+@media screen and (min-width: 600px) {
+  body::before {
+    content: "Phablet";
+    background-color: var(--phablet);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* Tablet */
+@media screen and (min-width: 900px) {
+  body::before {
+    content: "Tablet";
+    background-color: var(--tablet);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* Laptop */
+@media screen and (min-width: 1400px) {
+  body::before {
+    content: "Laptop";
+    background-color: var(--laptop);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1600px) {
+  body::before {
+    content: "Desktop";
+    background-color: var(--desktop);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
 }
