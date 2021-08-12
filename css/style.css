@@ -58,6 +58,7 @@ body::before {
   border: none;
   padding: 10px 0;
   background: #F5F5F7;
+  font-weight: bold;
 }
 
 .pricing-toggle__option.active {
