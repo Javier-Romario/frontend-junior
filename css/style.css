@@ -119,6 +119,9 @@ body::before {
 .card__product--price {
   font-weight: bold;
   font-size: 24px;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: flex-start;
 }
 
 .card__product--price-period {
