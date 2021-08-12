@@ -43,16 +43,25 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #F9FAFB;
+  background: #F5F5F7;
   text-align: center;
   width: 30%;
   margin: 2rem auto;
   border-radius: var(--radius-lg);
+  padding: 2px 2px;
 }
 
 .pricing-toggle__option {
   height: 100%;
   border-radius: var(--radius-lg);
+  width: 45%;
+  border: none;
+  padding: 10px 0;
+  background: #F5F5F7;
+}
+
+.pricing-toggle__option.active {
+  background-color: white;
 }
 
 .card-grid {
@@ -210,6 +219,10 @@ body::before {
   body::before {
     content: "Desktop";
     background-color: var(--desktop);
+  }
+
+  .page__content {
+    padding: 4.563rem 8.188em;
   }
 
   .card-grid {
