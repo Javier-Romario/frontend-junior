@@ -3,16 +3,19 @@ const cards = Array.from(document.querySelectorAll("[data-card]"));
 
 const priceValueElement = document.querySelectorAll(".card__product--value");
 
-const priceText = cards.map(
+let billingIndicators = document.querySelectorAll(".card__product--price-period");
+
+const montlyPrices = cards.map(
   (card) => card.querySelector(".card__product--value").innerText
 );
 
-const parsedPriceText = priceText.map((text) => parseInt(text));
+const parsedPriceText = montlyPrices.map((text) => parseInt(text));
 
-let yearly = false;
+let monthlyBilling = false;
 
-// calculate the yearly prices from HTML text (for maintainability)
-const yearlyPrices = parsedPriceText.map((price) => price * 12);
+
+// calculate the monthlyBilling prices from HTML text (for maintainability)
+const monthlyBillingPrices = parsedPriceText.map((price) => price * 12);
 
 // Get the buttons
 const buttons = Array.from(document.querySelectorAll("[data-pricing-toggle]"));
@@ -45,37 +48,41 @@ function calculateYearlyPricing(num) {
   return num * 12;
 }
 
-function changePricingValue() {
-  // make Yearly
-  if (!yearly) {
-    // update those prices
-    // const newPrices = yearlyPrices.forEach((price, i) => priceText[i] = price);
-    yearlyPrices.forEach((price, i) => {
-      return (priceValueElement[i].textContent = price);
+function toggleBillingIndicator() {
+  if (monthlyBilling) {
+    billingIndicators.forEach(indicator => {
+      return indicator.textContent = '/yr'
     });
-
-    yearly = true;
   } else {
-    // // calculate the montly prices from HTML text (for maintainability)
-    const monthlyPrices = parsedPriceText.map((price) => price / 12);
+    billingIndicators.forEach(indicator => indicator.textContent = '/mo'); 
+  }
+}
 
-    // update those prices
-    // const newPrices = yearlyPrices.forEach((price, i) => priceText[i] = price);
-    priceText.forEach((price, i) => {
+function changePricingValue() {
+  if (monthlyBilling) {
+    // update the prices: Montly values
+    montlyPrices.forEach((price, i) => {
       return (priceValueElement[i].textContent = price);
     });
 
-    yearly = false;
+    monthlyBilling = false;
+  } else {
+    // update the prices: Yearly Values
+    monthlyBillingPrices.forEach((price, i) => {
+      return (priceValueElement[i].textContent = price);
+    });
+
+    monthlyBilling = true;
   }
 }
 
 function togglePricingValue(e) {
   const currentActiveButton = e.target;
 
-  // Change the pricing values
   changePricingValue();
 
-  // Change the active button
+  toggleBillingIndicator();
+
   toggleActiveButton(currentActiveButton);
 }
 
